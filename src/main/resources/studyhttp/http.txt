@@ -1,0 +1,57 @@
+http请求报文：
+请求行：
+    请求Method, URL 字段和HTTP Version：
+            GET / HTTP/1.1
+请求头：
+    请求的主机名；
+            Host: localhost:8080
+    连接属性：
+            Connection: keep-alive
+    HTTP 发生了缓存（浏览器保存副本快速访问）
+        max-age>0 时 直接从游览器缓存中 提取
+        max-age<=0 时 向server 发送http 请求确认 ,该资源是否有修改
+            Cache-Control: max-age=0
+    用sec-ch-ua可以防止泄露浏览器详细信息:
+            sec-ch-ua: "Microsoft Edge";v="113", "Chromium";v="113", "Not-A.Brand";v="24"
+    是否是移动端用户:
+            sec-ch-ua-mobile: ?0
+    客户端的系统：
+            sec-ch-ua-platform: "Windows"
+    可以把http请求升级为安全的https请求：
+            Upgrade-Insecure-Requests: 1
+    产生请求的浏览器类型：
+            User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.50
+    客户端可识别的返回类型：
+            Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+    表示一个请求发起者的来源与目标资源来源之间的关系：
+            Sec-Fetch-Site: none
+    该请求头表明了一个请求的模式；（cors跨域等）
+            Sec-Fetch-Mode: navigate
+    true(?1)表示导航请求由用户激活触发(鼠标点击/键盘)，false(?0)表示导航请求由用户激活以外的原因触发；
+            Sec-Fetch-User: ?1
+    表示请求的目的地，即如何使用获取的数据；
+            Sec-Fetch-Dest: document
+    请求发起的来源：
+            Referer: http://localhost:8080/user
+    服务器端返回的数据压缩编码格式：
+            Accept-Encoding: gzip, deflate, br
+    客户端期望服务器返回的语言：Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+空行：
+    发送回车符和换行符，通知服务器以下不再有请求头。
+请求体：
+    {
+        "name": "age",
+    }
+
+
+http响应报文：
+响应头:
+    版本 状态码:
+            HTTP/1.1 200
+    服务器端实际返回的内容类型
+            Content-Type：text/html
+空行：
+    回车符和换行符
+响应体：
+    ok
+
