@@ -3,8 +3,8 @@
 
 ## 1.流程
 
-### mytomcat调用init方法初始化
-初始化两个hashmap对应两个地址映射
+- mytomcat调用init方法初始化
+初始化两个hashmap对应两个地址映射(xml和properties两种格式都可)
 
 ### mytomcat调用run方法开启serverSocket监听端口8080
 监听到创建socket，并且利用RequestHandler implement runnable并传入socket方法开启多线程
