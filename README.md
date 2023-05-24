@@ -1,5 +1,5 @@
 # myTomcat
-# 本文通过propeties文件模拟web.xml来配置servlet的地址映射和类映射，通过socket和多线程模拟tomcat处理http请求报文并且返回http响应报文。
+本文通过propeties文件模拟web.xml来配置servlet的地址映射和类映射，通过socket和多线程模拟tomcat处理http请求报文并且返回http响应报文。
 
 ## 1.流程
 
