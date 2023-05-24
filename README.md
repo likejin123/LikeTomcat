@@ -35,5 +35,30 @@
 - 首次接触本项目可以先跑通testtomcat的TestTomcat(模拟tomcat处理http请求和http响应)
  - 对照resource下的studyHtml学习
 
+## 5.目录结构
+.
+|-- java
+|   `-- com
+|       `-- likejin
+|           `-- mytomcat
+|               |-- MyTomcat.java
+|               |-- handler
+|               |   `-- RequestHandler.java
+|               |-- http
+|               |   |-- HttpRequest.java
+|               |   `-- HttpResponse.java
+|               |-- servlet
+|               |   |-- Servlet.java
+|               |   `-- impl
+|               |       `-- UserServlet.java
+|               `-- testtomcat
+|                   `-- TestTomcat.java
+`-- resources
+    |-- studyhttp
+    |   |-- http.txt
+    |   |-- httprequest.jpg
+    |   `-- httpresponse.jpg
+    |-- web.properties
+    `-- web.xml
 
  
