@@ -16,7 +16,7 @@ public class UserServlet implements Servlet {
     }
 
     /*
-     * @Description 必须获得response的outputstream才能返回数据
+     * @Description 返回处理结果
      * @param request
      * @param response
      * @return void
@@ -28,5 +28,5 @@ public class UserServlet implements Servlet {
         }catch (Exception e){
             e.printStackTrace();
         }
-        }
+    }
 }

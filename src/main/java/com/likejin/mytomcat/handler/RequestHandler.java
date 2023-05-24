@@ -5,8 +5,7 @@ import com.likejin.mytomcat.http.HttpRequest;
 import com.likejin.mytomcat.http.HttpResponse;
 import com.likejin.mytomcat.servlet.Servlet;
 
-import java.io.BufferedWriter;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.net.Socket;
 import java.util.HashMap;
 
@@ -39,9 +38,36 @@ public class RequestHandler implements Runnable {
             //获取对应的url映射到servlet中
             String servletName = namePatternMapping.get(httpRequest.getUrl());
             Servlet servlet = (Servlet)nameClassMapping.get(servletName);
+
             if(servlet!=null){
+                //分发servlet
                 servlet.service(httpRequest,httpResponse);
-            }else{
+
+            }else if(httpRequest.getUrl().startsWith("/studyhttp")){
+                //静态资源处理逻辑
+                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream(),"GBK"));
+                InputStream is = RequestHandler.class.getClassLoader().getResourceAsStream(httpRequest.getUrl().replaceFirst("/",""));
+                if(is != null){
+                    //浏览器端的编码为GBK显示，服务器端的txt文件编码为usf-8
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(is,"utf-8"));
+                    String msg = null;
+                    while((msg = reader.readLine()) != null){
+                        msg = HttpResponse.responseForm + msg;
+                        writer.write(msg);
+                        writer.flush();
+                    }
+                    reader.close();
+                }else{
+                    String msg = HttpResponse.responseForm + "访问的静态资源不存在";
+                    writer.write(msg);
+                    writer.flush();
+                    writer.close();
+                }
+                is.close();
+                writer.close();
+            }
+            else{
+                //无地址
                 BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream(),"GBK"));
                 String msg = HttpResponse.responseForm + "访问的servlet不存在";
                 writer.write(msg);
