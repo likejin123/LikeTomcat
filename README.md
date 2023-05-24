@@ -42,24 +42,24 @@
 |   `-- com
 |       `-- likejin
 |           `-- mytomcat
-|               |-- MyTomcat.java 主程序 初始化和启动tomcat
+|               |-- MyTomcat.java '主程序 初始化和启动tomcat'
 |               |-- handler
-|               |   `-- RequestHandler.java 映射器 映射servlet，静态资源
+|               |   `-- RequestHandler.java '映射器 映射servlet，静态资源'
 |               |-- http
-|               |   |-- HttpRequest.java 封装请求，主要处理请求报文获取method和url
-|               |   `-- HttpResponse.java 封装响应，主要发送响应报文
+|               |   |-- HttpRequest.java '封装请求，主要处理请求报文获取method和url'
+|               |   `-- HttpResponse.java '封装响应，主要发送响应报文'
 |               |-- servlet
-|               |   |-- Servlet.java servlet接口 默认实现提service和抽象方法doPost和doGet
+|               |   |-- Servlet.java 'servlet接口 默认实现提service和抽象方法doPost和doGet'
 |               |   `-- impl
-|               |       `-- UserServlet.java servlel实现类 实现doPost和doGet
+|               |       `-- UserServlet.java 'servlel实现类 实现doPost和doGet'
 |               `-- testtomcat
-|                   `-- TestTomcat.java 首次接触tomcat先跑这个。测试tomcat的处理http请求返回http响应
+|                   `-- TestTomcat.java '首次接触tomcat先跑这个。测试tomcat的处理http请求返回http响应'
 `-- resources
     |-- studyhttp
-    |   |-- http.txt http的请求报文结构和响应报文结构
-    |   |-- httprequest.jpg 请求报文
-    |   `-- httpresponse.jpg 响应报文
-    |-- web.properties servlet映射（只能映射一个）
-    `-- web.xml servlet映射（可以映射多个）（需要dom解析依赖）
+    |   |-- http.txt 'http的请求报文结构和响应报文结构'
+    |   |-- httprequest.jpg '请求报文'
+    |   `-- httpresponse.jpg '响应报文'
+    |-- web.properties 'servlet映射（只能映射一个）'
+    `-- web.xml 'servlet映射（可以映射多个）（需要dom解析依赖）'
 ```
  
